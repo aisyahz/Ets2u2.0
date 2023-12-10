@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
+    <!-- ... (Meta tags, title, linked CSS, and other head content) ... -->
+    <!-- Include necessary CSS and JavaScript libraries -->
+    <!-- ... -->
+    <style>
+        /* CSS styles here */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="form-builder">
+            <!-- Form builder content -->
+            <div v-for="(field, index) in formFields" :key="index">
+                <input type="text" v-model="field.value" :placeholder="'Field ' + (index + 1)">
+                <button @click="removeField(index)">Remove</button>
+            </div>
+            <button @click="addField">Add Field</button>
+            <button @click="saveFormData">Save</button>
+        </div>
+        <div class="form-preview">
+            <!-- Form preview content -->
+            <FormPreview :formFields="formFields" v-if="showPreview" />
+        </div>
+    </div>
+
+
+    <!-- Include Vue.js and Vue Router -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.3/dist/vue-router.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-firestore.js"></script>
+
+    <!-- Firebase configuration -->
+    <script>
+        const firebaseConfig = {
+  apiKey: "AIzaSyAfMYj8n5MRszOHDfNp75vY_8EJx_IOHu0",
+  authDomain: "my-ets2u.firebaseapp.com",
+  projectId: "my-ets2u",
+  storageBucket: "my-ets2u.appspot.com",
+  messagingSenderId: "365095721936",
+  appId: "1:365095721936:web:f1e93f9700467d8bda77d5",
+  measurementId: "G-SK81X5VH07"
+};
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+<script>
+         
+         Vue.component('FormPreview', {
+    props: ['formFields'],
+    template: `
+        <div>
+            <h1>Form Preview</h1>
+            <form>
+                <div v-for="(field, index) in formFields" :key="index">
+                    <label :for="'field_' + index">{{ field.question }}</label>
+                    <input v-if="field.inputType === 'text'" type="text" :id="'field_' + index" v-model="field.answer">
+                    <textarea v-else-if="field.inputType === 'textarea'" :id="'field_' + index" v-model="field.answer"></textarea>
+                    <input v-else-if="field.inputType === 'number'" type="number" :id="'field_' + index" v-model.number="field.answer">
+                    <input v-else-if="field.inputType === 'checkbox'" type="checkbox" :id="'field_' + index" v-model="field.answer">
+                    <!-- Add more conditions for other input types if needed -->
+                </div>
+            </form>
+        </div>
+            `,
+            methods: {
+                getFieldType(field) {
+                    // Logic to determine input field type based on field value (you can adjust this logic as needed)
+                    if (typeof field.value === 'number') {
+                        return 'number';
+                    } else if (typeof field.value === 'boolean') {
+                        return 'checkbox';
+                    } else {
+                        return 'text';
+                    }
+                }
+            }
+        });
+
+        const routes = [
+            {
+                path: '/form/:id',
+                name: 'formPreview',
+                component: {
+                    template: '<FormPreview :formFields="formFields" />',
+                    data() {
+                        return {
+                            formFields: [] // Store form fields retrieved from Firestore
+                        };
+                    },
+                    created() {
+                        const formId = 'Ny6v8uRsPPfWs4j1Ynv7'; // Document ID
+                        // Fetch data from Firestore based on formId
+                        db.collection('CreateEvent').doc(formId).get()
+                            .then((doc) => {
+                                if (doc.exists) {
+                                    // Retrieve form fields from Firestore and assign them to formFields
+                                    // Adjust this according to your Firestore structure
+                                    this.formFields = Object.keys(doc.data()).map(key => ({ value: doc.data()[key] }));
+                                } else {
+                                    console.log('No such document!');
+                                }
+                            })
+                            .catch((error) => {
+                                console.log('Error getting document:', error);
+                            });
+                    }
+                }
+            }
+            // Other routes...
+        ];
+
+
+        const router = new VueRouter({
+            routes
+        });
+        
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    formFields: [], // Array to store form fields
+                    showPreview: false // Flag to toggle form preview
+                };
+            },
+            methods: {
+                addField() {
+                    // Add a new empty field to the formFields array
+                    this.formFields.push({ value: '' });
+                },
+                removeField(index) {
+                    // Remove the field at the specified index
+                    this.formFields.splice(index, 1);
+                },
+                saveFormData() {
+                    // Save form data to Firestore under 'CreateEvent' collection
+                    const formDataToSave = {};
+                    this.formFields.forEach((field, index) => {
+                        formDataToSave[`field_${index + 1}`] = field.value;
+                    });
+
+                    db.collection('CreateEvent').add(formDataToSave)
+                        .then(docRef => {
+                            // After saving, navigate to the new route with the new document ID appended to the URL
+                            const newFormId = docRef.id;
+                            this.$router.push(`/form/${newFormId}`);
+                        })
+                        .catch(error => {
+                            console.error('Error adding document: ', error);
+                        });
+                    this.showPreview = true;
+                }
+            },
+            router // Include the Vue Router instance
+        });
+    </script>
+</body>
+</html>

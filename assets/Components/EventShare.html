@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (Meta tags, title, linked CSS, and other head content) ... -->
+ <!-- meta data -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+ <!--font-family-->
+ <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+ <!-- title of site -->
+ <title>Directory Landing Page</title>
+
+ <!-- For favicon png -->
+ <link rel="shortcut icon" type="image/icon" href="../logo/favicon.png"/>
+
+ <!--font-awesome.min.css-->
+ <link rel="stylesheet" href="../css/font-awesome.min.css">
+
+ <!--linear icon css-->
+ <link rel="stylesheet" href="../css/linearicons.css">
+
+ <!--animate.css-->
+ <link rel="stylesheet" href="../css/animate.css">
+
+ <!--flaticon.css-->
+ <link rel="stylesheet" href="../css/flaticon.css">
+
+ <!--slick.css-->
+ <link rel="stylesheet" href="../css/slick.css">
+ <link rel="stylesheet" href="../css/slick-theme.css">
+ 
+ <!--bootstrap.min.css-->
+ <link rel="stylesheet" href="../css/bootstrap.min.css">
+ 
+ <!-- bootsnav -->
+ <link rel="stylesheet" href="../css/bootsnav.css" >	
+ 
+ <!--style.css-->
+ <link rel="stylesheet" href="../css/style.css">
+ 
+ <!--responsive.css-->
+ <link rel="stylesheet" href="../css/responsive.css">
+ 
+ <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ 
+ <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+ <![endif]-->
+
+ <style>
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+
+</style>
+</head>
+<body class="Dashboard_Public">
+
+    <header id="header-top" class="header-top">
+        <ul>
+            <li>
+                <div class="header-top-left">
+                    <ul>
+                        <li class="select-opt">
+                            <select name="language" id="language">
+                                <option value="default">EN</option>
+                                <option value="Bangla">BN</option>
+                                <option value="Arabic">AB</option>
+                            </select>
+                        </li>
+                        <li class="select-opt">
+                            <select name="currency" id="currency">
+                                <option value="usd">USD</option>
+                                <option value="euro">Euro</option>
+                                <option value="bdt">BDT</option>
+                            </select>
+                        </li>
+                        <li class="select-opt">
+                            <a href="#"><span class="lnr lnr-magnifier"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="head-responsive-right pull-right">
+                <div class="header-top-right">
+                    <ul>
+                        <li class="header-top-contact">
+                            +1 222 777 6565
+                        </li>
+                        <li class="header-top-contact">
+                            <a href="assets/Components/Login.html">sign in</a>
+                        </li>
+                        <li class="header-top-contact">
+                            <a href="Register.html">register</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <div class="event-share">
+                <!-- Share Your Form Card -->
+                <div class="share-form-card">
+                  <h2>Share Your Form</h2>
+                  <!-- Display QR Code with Download Button -->
+                  <div class="qr-code" id="qr-code">
+                    <img src="example_qr_code.png" alt="QR Code">
+                    <button onclick="downloadQR()">Download QR Code</button>
+                  </div>
+                  <!-- Short URL Link -->
+                  <div class="short-url" id="short-url">
+                    <p>Short URL: <a href="example_short_url">example_short_url</a></p>
+                  </div>
+                </div>
+            
+                <!-- Publish Setting -->
+                <div class="publish-settings">
+                  <h2>Publish Settings</h2>
+                  <!-- Responses Limit -->
+                  <div class="responses-limit" id="responses-limit">
+                    <label for="response-limit">Responses Limit:</label>
+                    <input type="number" id="response-limit">
+                  </div>
+                  <!-- Registration Start and End Field -->
+                  <div class="registration-dates" id="registration-dates">
+                    <label for="start-date">Registration Start Date:</label>
+                    <input type="datetime-local" id="start-date">
+                    <label for="end-date">Registration End Date:</label>
+                    <input type="datetime-local" id="end-date">
+                  </div>
+                  <!-- Checkbox for Form Submission -->
+                  <div class="form-submission-checkbox" id="form-submission-checkbox">
+                    <label for="enable-submission">Enable Submission:</label>
+                    <input type="checkbox" id="enable-submission">
+                  </div>
+                  <!-- Show QR Code upon Successful Submission -->
+                  <div class="show-qr-code" id="show-qr-code">
+                    <label for="show-qr">Show QR Code upon Successful Submission:</label>
+                    <input type="checkbox" id="show-qr">
+                  </div>
+                  <!-- Email Copy to Responder -->
+                  <div class="email-copy" id="email-copy">
+                    <label for="email-copy">Email Copy to Responder upon Successful Submission:</label>
+                    <input type="checkbox" id="email-copy">
+                  </div>
+                </div>
+            
+                <!-- Save Form Settings and View Form Buttons -->
+                <div class="save-and-view">
+                  <button onclick="saveFormSettings()">Save Form Settings</button>
+                  <button onclick="viewForm()">View Form</button>
+                </div>
+              </div>
+
+
+
+
+
+
+
+            <!--footer start-->
+		<footer id="footer"  class="footer">
+			<div class="container">
+				<div class="footer-menu">
+		           	<div class="row">
+			           	<div class="col-sm-3">
+			           		 <div class="navbar-header">
+				                <a class="navbar-brand" href="index.html">Ets<span>2u</span></a>
+				            </div><!--/.navbar-header-->
+			           	</div>
+			           	<div class="col-sm-9">
+			           		<ul class="footer-menu-item">
+			                    <li class="scroll"><a href="#works">how it works</a></li>
+			                    <li class="scroll"><a href="#explore">explore</a></li>
+			                    <li class="scroll"><a href="#reviews">review</a></li>
+			                <li class="scroll"><a href="#blog">blog</a></li>
+			                    <li class="scroll"><a href="#contact">contact</a></li>
+			                    <li class=" scroll"><a href="#contact">my account</a></li>
+			                </ul><!--/.nav -->
+			           	</div>
+		           </div>
+				</div>
+				<div class="hm-footer-copyright">
+					<div class="row">
+						<div class="col-sm-5">
+							<p>
+								&copy;copyright. designed and developed by <a href="https://www.themesine.com/">Aisyah</a>
+							</p><!--/p-->
+						</div>
+						<div class="col-sm-7">
+							<div class="footer-social">
+								<span><i class="fa fa-phone"> +1  (222) 777 8888</i></span>
+								<a href="#"><i class="fa fa-facebook"></i></a>	
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-linkedin"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+							</div>
+						</div>
+					</div>
+					
+				</div><!--/.hm-footer-copyright-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="../js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="../js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="../js/bootsnav.js"></script>
+
+        <!--feather.min.js-->
+        <script  src="../js/feather.min.js"></script>
+
+        <!-- counter js -->
+		<script src="../js/jquery.counterup.min.js"></script>
+		<script src="../js/waypoints.min.js"></script>
+
+        <!--slick.min.js-->
+        <script src="../js/slick.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="../js/custom.js"></script>
+        <script>
+            new Vue({
+              el: '#app',
+              data: {
+                responsesLimit: 100,
+                startDate: '',
+                endDate: '',
+                enableSubmission: false,
+                showQR: false,
+                emailCopy: false
+              },
+              methods: {
+                downloadQR() {
+                  // Logic to download QR code
+                },
+                saveFormSettings() {
+                  // Logic to save form settings
+                },
+                viewForm() {
+                  // Logic to view form
+                }
+              }
+            });
+          </script>
+</body>
+</html>
