@@ -45,6 +45,13 @@
  <!--responsive.css-->
  <link rel="stylesheet" href="../css/responsive.css">
  
+ <!--header/footer script-->
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+ <script src="../js/head.js"></script>
+ <!--Google Translate-->
+ <script type="text/javascript"
+     src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+     
  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
  
@@ -55,50 +62,9 @@
 </head>
 <body class="Dashboard_Public">
 
-    <header id="header-top" class="header-top">
-        <ul>
-            <li>
-                <div class="header-top-left">
-                    <ul>
-                        <li class="select-opt">
-                            <select name="language" id="language">
-                                <option value="default">EN</option>
-                                <option value="Bangla">BN</option>
-                                <option value="Arabic">AB</option>
-                            </select>
-                        </li>
-                        <li class="select-opt">
-                            <select name="currency" id="currency">
-                                <option value="usd">USD</option>
-                                <option value="euro">Euro</option>
-                                <option value="bdt">BDT</option>
-                            </select>
-                        </li>
-                        <li class="select-opt">
-                            <a href="#"><span class="lnr lnr-magnifier"></span></a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="head-responsive-right pull-right">
-                <div class="header-top-right">
-                    <ul>
-                        <li class="header-top-contact">
-                            +1 222 777 6565
-                        </li>
-                        <li class="header-top-contact">
-                            <a href="Login.html">sign in</a>
-                        </li>
-                        <li class="header-top-contact">
-                            <a href="Register.html">register</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-                
-    </header><!--/.header-top-->
-    <!--header-top end -->
+    <!--Header-->
+    <div id="header-container"></div>
+
 <div class="banner">
     <div class="banner-image"></div>
 </div>
@@ -413,58 +379,8 @@
 </section><!--/.reviews-->
 <!--reviews end -->
 
-   		<!--footer start-->
-		<footer id="footer"  class="footer">
-			<div class="container">
-				<div class="footer-menu">
-		           	<div class="row">
-			           	<div class="col-sm-3">
-			           		 <div class="navbar-header">
-				                <a class="navbar-brand" href="index.html">Ets<span>2u</span></a>
-				            </div><!--/.navbar-header-->
-			           	</div>
-			           	<div class="col-sm-9">
-			           		<ul class="footer-menu-item">
-			                    <li class="scroll"><a href="#works">how it works</a></li>
-			                    <li class="scroll"><a href="#explore">explore</a></li>
-			                    <li class="scroll"><a href="#reviews">review</a></li>
-			                <li class="scroll"><a href="#blog">blog</a></li>
-			                    <li class="scroll"><a href="#contact">contact</a></li>
-			                    <li class=" scroll"><a href="#contact">my account</a></li>
-			                </ul><!--/.nav -->
-			           	</div>
-		           </div>
-				</div>
-				<div class="hm-footer-copyright">
-					<div class="row">
-						<div class="col-sm-5">
-							<p>
-								&copy;copyright. designed and developed by <a href="https://www.themesine.com/">Aisyah</a>
-							</p><!--/p-->
-						</div>
-						<div class="col-sm-7">
-							<div class="footer-social">
-								<span><i class="fa fa-phone"> +1  (222) 777 8888</i></span>
-								<a href="#"><i class="fa fa-facebook"></i></a>	
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-linkedin"></i></a>
-								<a href="#"><i class="fa fa-google-plus"></i></a>
-							</div>
-						</div>
-					</div>
-					
-				</div><!--/.hm-footer-copyright-->
-			</div><!--/.container-->
-
-			<div id="scroll-Top">
-				<div class="return-to-top">
-					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
-				</div>
-				
-			</div><!--/.scroll-Top-->
-			
-        </footer><!--/.footer-->
-		<!--footer end-->
+    <!--Footer-->
+    <div id="footer-container"></div>
 		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
