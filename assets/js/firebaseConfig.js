@@ -1,8 +1,4 @@
 // firebaseConfig.js
-
-import firebase from 'firebase/app';
-import 'firebase/firestore'; // Import Firestore if you're using Firestore
-
 const firebaseConfig = {
   apiKey: "AIzaSyAfMYj8n5MRszOHDfNp75vY_8EJx_IOHu0",
   authDomain: "my-ets2u.firebaseapp.com",
@@ -13,7 +9,8 @@ const firebaseConfig = {
   measurementId: "G-SK81X5VH07"
 };
 
-
+//Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-export const db = firebase.firestore();
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const storage = firebase.storage();

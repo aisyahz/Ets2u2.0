@@ -18,7 +18,7 @@
     <title>Login</title>
 
     <!-- For favicon png -->
-    <link rel="shortcut icon" type="image/icon" href="../logo/favicon.png" />
+    <link rel="shortcut icon" type="image/icon" href="../logo/logo.png" />
 
     <!--font-awesome.min.css-->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
@@ -72,7 +72,7 @@
     <div class="login-container">
         <div class="login-box">
             <h2>Login</h2>
-            <form id="loginForm" action="#" method="POST"> <!-- Replace "#" with the actual action URL -->
+            <form id="loginForm" > <!-- Replace "#" with the actual action URL -->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
@@ -81,7 +81,9 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <button type="submit">Login</button>
+                <button type="button" onclick="login()" class="registerlogin">Login</button>
+                <br><br><br>
+                <button onclick="logingoogle()">Or Sign in with Google</button>
             </form>
         </div>
     </div>
@@ -118,6 +120,16 @@
 
     <!--Custom JS-->
     <script src="../js/custom.js"></script>
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage-compat.js"></script>
+    <!--JavaScript-->
+    <script src="../js/firebaseConfig.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
 
 </body>
 
