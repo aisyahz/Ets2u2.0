@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Header</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
 <body>
-    <!--header-top start -->
+	<!--header-top start -->
 	<header id="header-top" class="header-top">
 		<ul>
 			<li>
 				<div class="header-top-left">
 					<ul>
 						<li class="select-opt">
-                            <div id="google_translate_element"></div>
+							<div id="google_translate_element"></div>
 						</li>
 					</ul>
 				</div>
@@ -25,10 +28,16 @@
 							+60182798000
 						</li>
 						<li class="header-top-contact">
-							<a href="../Components/Login.html">sign in</a>
+							<a href="/assets/Components/Login.html">Login</a>
 						</li>
 						<li class="header-top-contact">
-							<a href="../Components/Register.html">register</a>
+							<a href="/assets/Components/Register.html">Register</a>
+						</li>
+						<li class="header-top-contact">
+							<a href="javascript:void(0);" onclick="toggleSidebar()">My Account</a>
+						</li>
+						<li class="header-top-contact">
+							<div id="sign-out-container"></div>
 						</li>
 					</ul>
 				</div>
@@ -38,7 +47,7 @@
 	</header><!--/.header-top-->
 	<!--header-top end -->
 
-    <!-- top-area Start -->
+	<!-- top-area Start -->
 	<section class="top-area">
 		<div class="header-area">
 			<!-- Start Navigation -->
@@ -57,12 +66,11 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 						<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-							<li ><a href="/index.html">home</a></li>
-							<li ><a href="/assets/Components/AboutUs.html">About us</a></li>
-							<li ><a href="/assets/Components/EventsList.html">event list</a></li>
-							<li ><a href="/assets/Components/review.html">review</a></li>
-							<li ><a href="/assets/Components/blog.html">blog</a></li>
-							<li ><a href="/assets/Components/contact.html">contact</a></li>
+							<li><a href="/index.html">home</a></li>
+							<li><a href="/assets/Components/AboutUs.html">About us</a></li>
+							<li><a href="/assets/Components/information.html">information</a></li>
+							<li><a href="/assets/Components/EventsList.html">event list</a></li>
+							<li><a href="/assets/Components/ContactUs.html">Contact Us</a></li>
 						</ul><!--/.nav -->
 					</div><!-- /.navbar-collapse -->
 				</div><!--/.container-->
@@ -73,6 +81,16 @@
 
 	</section><!-- /.top-area-->
 	<!-- top-area End -->
-    
+
+	<!-- Sidenav -->
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+		<a href="/assets/Components/myProfile.html">MY PROFILE</a>
+		<a href="/assets/Components/ticketHistory.html">MY TICKET HISTORY</a>
+		<a href="/assets/Components/myEvent.html">MY EVENT</a>
+		<a href="/assets/Components/OrgProf.html">ORGANIZER PROFILE</a>
+		<a href="/assets/Components/orgDashboard.html">ORGANIZER DASHBOARD</a>
+	</div>
 </body>
+
 </html>
